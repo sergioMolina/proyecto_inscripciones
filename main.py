@@ -72,7 +72,8 @@ def exportar_excel(background_tasks: BackgroundTasks, authorized: bool = Depends
         rows = db.query(Inscripcion).all()
         wb = Workbook()
         ws = wb.active
-        ws.title = "Inscripciones"
+        ws.title = "Inscripciones prueba"
+
         # Cabecera
         ws.append([
             "ID", "Nombre", "Apellidos", "DNI",
