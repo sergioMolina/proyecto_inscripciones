@@ -1,0 +1,17 @@
+# DB and keys
+inscripciones.db
+secret.key
+.env
+
+
+# Python
+__pycache__/
+*.pyc
+
+
+# VSCode
+.vscode/
+
+
+# Temp files
+*.xlsx
