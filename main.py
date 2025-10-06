@@ -1,5 +1,6 @@
 from typing import Optional
 import os
+import uvicorn
 import tempfile
 from fastapi import FastAPI, Form, Depends, Header, HTTPException, status, BackgroundTasks
 from fastapi.responses import HTMLResponse, FileResponse
@@ -19,6 +20,11 @@ if not API_KEY:
 Base.metadata.create_all(bind=engine)
 app = FastAPI(title="Portal de Inscripciones")
 app.mount("/static", StaticFiles(directory="static"), name="static")
+# Modificacion para que Railway pueda desplegar en el puerto correcto
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
+
 # Dependencia para verificar API key simple
 
 
