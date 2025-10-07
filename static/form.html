@@ -1,81 +1,181 @@
 <!DOCTYPE html>
-<Style>
-    .plan-desc {
-        margin-left: 1.2rem;
-        font-size: 0.9rem;
-        color: #333;
-    }
-</style>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripción</title>
+    <style>
+        /* --- Estilos globales --- */
+        body {
+            font-family: "Segoe UI", Roboto, sans-serif;
+            background-color: #f6f8fa;
+            margin: 0;
+            padding: 2rem;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        form {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #222;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            margin-top: 0.3rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-top: 1.5rem;
+            background-color: #fafafa;
+        }
+
+        legend {
+            font-weight: 700;
+            color: #007bff;
+            padding: 0 0.5rem;
+        }
+
+        .plan-option {
+            margin-bottom: 0.8rem;
+        }
+
+        .plan-desc {
+            margin-left: 1.8rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- Adaptación a pantallas pequeñas --- */
+        @media (max-width: 600px) {
+            form {
+                padding: 1.2rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <h2>Formulario de inscripción</h2>
     <form action="/inscribir" method="post">
 
-
         <label>Nombre:
             <input type="text" name="nombre" required>
         </label>
-
 
         <label>Apellidos:
             <input type="text" name="apellidos" required>
         </label>
 
-
         <label>DNI:
             <input type="text" name="dni" required>
         </label>
-
 
         <label>Teléfono:
             <input type="text" name="telefono" required>
         </label>
 
-
         <label>Curso:
             <input type="text" name="curso" required>
         </label>
-
 
         <label>
             <input type="checkbox" name="participo_prev" value="1">
             Participó el año pasado
         </label>
 
-
-        <fieldset style="margin-top:1rem;">
+        <fieldset>
             <legend>Tarifa anual (selección única)</legend>
 
+            <div class="plan-option">
+                <label>
+                    <input type="radio" name="precio_plan" value="basico" required>
+                    15€/Anual
+                </label>
+                <div class="plan-desc">No necesito equipación (tengo del año pasado)</div>
+            </div>
 
-            <label>
-                <input type="radio" name="precio_plan" value="basico" required>
-                15€/Anual
-            </label>
-            <div class="plan-desc small">No necesito equipación(tengo del año pasado)</div>
+            <div class="plan-option">
+                <label>
+                    <input type="radio" name="precio_plan" value="camiseta">
+                    30€/Anual
+                </label>
+                <div class="plan-desc">Quiero solo la camiseta</div>
+            </div>
 
+            <div class="plan-option">
+                <label>
+                    <input type="radio" name="precio_plan" value="pantalon">
+                    25€/Anual
+                </label>
+                <div class="plan-desc">Quiero solo el pantalón</div>
+            </div>
 
-            <label>
-                <input type="radio" name="precio_plan" value="Camiseta">
-                30€/Anual
-            </label>
-            <div class="plan-desc small">Quiero solo la camiseta</div>
-
-
-            <label>
-                <input type="radio" name="precio_plan" value="pantalon">
-                25€/Anual
-            </label>
-            <div class="plan-desc small">Quiero solo pantalon</div>
-            <label>
-                <input type="radio" name="precio_plan" value="full">
-                40€/Anual
-            </label>
-            <div class="plan-desc small">Necesito equipación completa.</div>
+            <div class="plan-option">
+                <label>
+                    <input type="radio" name="precio_plan" value="full">
+                    40€/Anual
+                </label>
+                <div class="plan-desc">Necesito equipación completa</div>
+            </div>
         </fieldset>
 
-
-        <br>
         <button type="submit">Enviar inscripción</button>
     </form>
 </body>
