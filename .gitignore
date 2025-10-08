@@ -17,4 +17,5 @@ __pycache__/
 *.xlsx
 
 #entorno virtual
-venv/
+.venv/
+#fin
